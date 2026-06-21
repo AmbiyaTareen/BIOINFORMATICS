@@ -1,11 +1,13 @@
 import pandas as pd
 
-df = pd.read_csv('proteinas_test.csv')
-print(df.head())
-print(df.describe())
-print(df.shape)
-print(df.columns)
-print(df.info())
-print(df.isnull().sum())
-print(df.groupby("ID_Proteína")["Carga_Total"].value_counts())
-print(df.dropna(subset=['Classe']))
+def load_data(filepath):
+    return pd.read_csv(filepath)
+def explore (df):
+    print(df.head())
+    print(df.describe())
+    print(df.shape)
+    print(df.isnull().sum())
+
+if  __name__== "__main__":
+    df = load_data("proteinas_test.csv")
+    explore(df)
